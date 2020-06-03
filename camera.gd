@@ -12,12 +12,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_translate(cameramovement(delta))
-	
-
-func cameramovement(delta):
-	
-	
+	global_translate(movement*vel*delta)
+	movement.y = 0
+func cameramovement():
 	if Input.is_key_pressed(16777237):
 		vel = 100
 	else:
@@ -37,16 +34,13 @@ func cameramovement(delta):
 		movement.z = 1
 	else:
 		movement.z = 0
-		
-
-	
-	return movement*vel*delta
 
 func _input(event):
+	cameramovement();
 	if event is InputEventMouseButton: #and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event.button_index == BUTTON_WHEEL_UP or event.button_index == BUTTON_WHEEL_DOWN:
 			if event.button_index == BUTTON_WHEEL_UP:#ZOOM IN
-				pass
+				movement.y = -5
 			elif event.button_index == BUTTON_WHEEL_DOWN:#ZOOM OUT
-				movement.y = +10
+				movement.y = +5
 
