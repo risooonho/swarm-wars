@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Swarm Wars"
-run/main_scene="res://Level 0.tscn"
 config/icon="res://icon.png"
 
 [display]
