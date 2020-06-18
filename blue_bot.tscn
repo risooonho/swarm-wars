@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://basic_bot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/tank_assets/onlyObjects_retina_rotated.png" type="Texture" id=2]
+[ext_resource path="res://blue_bot.gd" type="Script" id=3]
+
+[node name="blue_bot" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+speed = null
+rotation_speed = null
+gun_cooldown = null
+health = null
+
+[node name="Body" parent="." index="1"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -2, 265, 85, 82 )
+
+[node name="Turret" parent="." index="2"]
+texture = ExtResource( 2 )
+offset = Vector2( 21, 0 )
+region_enabled = true
+region_rect = Rect2( 260, 36, 58, 24 )
+
+[node name="turretposition" parent="Turret" index="0"]
+position = Vector2( 50.718, 0 )

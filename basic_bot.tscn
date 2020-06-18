@@ -2,12 +2,21 @@
 
 [ext_resource path="res://basic_bot.gd" type="Script" id=1]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="basic_bot" type="KinematicBody2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collisionmesh" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="CollisionShape2D"]
+[node name="Body" type="Sprite" parent="."]
+
+[node name="Turret" type="Sprite" parent="."]
+
+[node name="turretposition" type="Position2D" parent="Turret"]
+
+[node name="GunTimer" type="Timer" parent="."]

@@ -1,15 +1,29 @@
 extends KinematicBody2D
 
 
-var MAX_SPEED = 300
-var ACCELERATION = 1500
+signal health_changed
+signal died
+signal scored
 
+export (PackedScene) var basic_bullet
+export (int) var speed
+export (float) var rotation_speed
+export (float) var gun_cooldown
+export (int) var health
+#export () target
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var velocity = Vector2()
+var can_shoot = true
+var alive = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _reaty():
+	$GunTimer.wait_time = gun_cooldown
+	
+func control(delta):
+	pass
+	
+func _physics_process(delta):
+	if not alive:
+		return
+	control(delta)
+	move_and_slide(velocity)
